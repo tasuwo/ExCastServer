@@ -1,7 +1,9 @@
 const webpack = require("webpack");
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
+  target: "node",
   entry: {
     main: path.join(__dirname, "src/main.ts")
   },
@@ -24,6 +26,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    new Dotenv()
   ]
 };
